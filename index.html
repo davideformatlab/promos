@@ -3,417 +3,419 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EU Inc. — Approfondimento Promos Italia</title>
+<title>EU Inc. — Promos Italia</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --blue:      #005EB8;
-    --blue-dark: #003F80;
-    --blue-light:#E6F0FB;
-    --blue-mid:  #B5D0F0;
-    --green:     #9CF088;
-    --green-dark:#3A8A28;
-    --green-light:#EAF9E6;
-    --white:     #FFFFFF;
-    --gray-bg:   #F4F6F9;
-    --gray-line: #D8DDE6;
-    --gray-mid:  #8A94A6;
-    --text:      #0D1B2A;
-    --text-soft: #4A5568;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-  }
+:root {
+  --blue: #005EB8;
+  --blue-dark: #003A7A;
+  --blue-deep: #001F4D;
+  --blue-light: #D0E6FF;
+  --green: #9CF088;
+  --green-dark: #2E7D1E;
+  --white: #FFFFFF;
+  --off: #F4F7FA;
+  --text: #0A1628;
+  --soft: #4A5C7A;
+}
 
-  body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #FFFFFF;
-    color: var(--text);
-    padding: 2rem 1rem;
-    min-height: 100vh;
-  }
+html, body {
+  min-height: 100vh;
+  background: #E8EDF5;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ── wrapper ── */
-  .deck-wrap {
-    max-width: 680px;
-    margin: 0 auto;
-  }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
 
-  /* ── header ── */
-  .deck-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.25rem;
-  }
-  .deck-eyebrow {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--blue);
-  }
-  .deck-counter {
-    font-size: 13px;
-    color: var(--gray-mid);
-  }
+.deck-outer { width: 100%; max-width: 680px; }
 
-  /* ── track ── */
-  .deck-track-wrap { overflow: hidden; border-radius: var(--radius-lg); }
-  .deck-track {
-    display: flex;
-    gap: 20px;
-    transition: transform .38s cubic-bezier(.4,0,.2,1);
-  }
+/* ── top bar ── */
+.deck-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.deck-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+}
+.pip-live {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(156,240,136,.3);
+}
+.deck-counter {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--soft);
+}
 
-  /* ── card ── */
-  .card {
-    flex: 0 0 100%;
-    background: var(--white);
-    border: 1px solid var(--gray-line);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    min-height: 360px;
-  }
+/* ── track & slider ── */
+.track-clip { overflow: hidden; border-radius: 24px; }
+.track {
+  display: flex;
+  transition: transform .5s cubic-bezier(.2, 1, .3, 1);
+  will-change: transform;
+}
 
-  .card-top {
-    padding: 22px 24px 16px;
-    border-bottom: 1px solid var(--gray-line);
-  }
-  .card-num {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .card-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.3;
-    margin-bottom: 8px;
-  }
-  .card-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 11px;
-    border-radius: 99px;
-  }
+.card {
+  flex: 0 0 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: 0 10px 40px rgba(0,30,80,.08);
+}
 
-  .card-body {
-    padding: 18px 24px;
-    font-size: 14px;
-    color: var(--text-soft);
-    line-height: 1.7;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+/* ── card header ── */
+.card-head {
+  padding: 35px 40px 30px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
 
-  /* ── point row ── */
-  .point { display: flex; gap: 10px; align-items: flex-start; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-  .point strong { color: var(--text); font-weight: 600; }
+.card-head::before {
+  content: attr(data-n);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 140px;
+  font-weight: 800;
+  opacity: .08;
+  pointer-events: none;
+}
 
-  /* ── kpi grid ── */
-  .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-  .kpi { background: var(--gray-bg); border-radius: var(--radius-sm); padding: 12px 10px; text-align: center; }
-  .kpi-val { font-size: 20px; font-weight: 700; margin-bottom: 4px; color: var(--blue); }
-  .kpi-lbl { font-size: 11px; color: var(--gray-mid); line-height: 1.4; }
+.card-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+  margin-bottom: 8px;
+}
 
-  /* ── quote ── */
-  .quote-block {
-    border-left: 3px solid var(--blue);
-    background: var(--blue-light);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 12px 14px;
-  }
-  .quote-text { font-size: 13px; font-style: italic; color: var(--blue-dark); line-height: 1.6; }
-  .quote-author { font-size: 11px; font-weight: 600; color: var(--blue); margin-top: 6px; }
+.card-title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
 
-  /* ── warn box ── */
-  .warn-box {
-    border: 1px solid #F4B8A0;
-    background: #FEF0EA;
-    border-radius: var(--radius-sm);
-    padding: 12px 14px;
-  }
-  .warn-title { font-size: 13px; font-weight: 600; color: #8B3112; margin-bottom: 4px; }
-  .warn-body { font-size: 13px; color: #7A3520; line-height: 1.6; }
+.card-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.2);
+}
 
-  /* ── timeline ── */
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .tl-item { display: flex; gap: 14px; }
-  .tl-line-wrap { display: flex; flex-direction: column; align-items: center; }
-  .tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); flex-shrink: 0; margin-top: 4px; }
-  .tl-line { width: 2px; background: var(--blue-mid); flex: 1; min-height: 16px; margin: 2px 0; }
-  .tl-item:last-child .tl-line { display: none; }
-  .tl-content { padding-bottom: 14px; }
-  .tl-year { font-size: 12px; font-weight: 700; color: var(--blue); margin-bottom: 2px; }
-  .tl-desc { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+/* ── card body ── */
+.card-body {
+  padding: 30px 40px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
 
-  /* ── nav ── */
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
-  }
+.point {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--soft);
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-top: 9px;
+  flex-shrink: 0;
+}
+.point strong { color: var(--text); }
 
-  .nav-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--blue);
-    background: var(--white);
-    border: 1.5px solid var(--blue);
-    border-radius: 99px;
-    padding: 8px 20px;
-    cursor: pointer;
-    transition: background .15s, color .15s;
-    font-family: inherit;
-  }
-  .nav-btn:hover:not(:disabled) {
-    background: var(--blue);
-    color: var(--white);
-  }
-  .nav-btn:disabled { opacity: .28; cursor: default; }
+/* ── kpi ── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 5px 0;
+}
+.kpi {
+  background: var(--off);
+  border-radius: 16px;
+  padding: 16px 12px;
+  text-align: center;
+}
+.kpi-val {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.kpi-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--soft);
+  line-height: 1.3;
+}
 
-  /* next btn: green accent */
-  #next {
-    background: var(--green);
-    border-color: var(--green);
-    color: var(--green-dark);
-  }
-  #next:hover:not(:disabled) {
-    background: #7CE068;
-    border-color: #7CE068;
-    color: var(--green-dark);
-  }
-  #next:disabled { background: var(--gray-bg); border-color: var(--gray-line); color: var(--gray-mid); }
+/* ── warn/quote ── */
+.warn-box, .quote-block {
+  padding: 18px 20px;
+  border-radius: 12px;
+  border-left: 4px solid;
+}
+.warn-box { background: #FFF5F0; border-color: #D04010; }
+.warn-title { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #D04010; margin-bottom: 4px; }
+.warn-body { font-size: 14px; line-height: 1.5; color: #6B3520; }
 
-  /* ── dots ── */
-  .dots { display: flex; gap: 6px; align-items: center; }
-  .pip {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--gray-line);
-    cursor: pointer;
-    transition: all .2s;
-    border: none;
-    padding: 0;
-  }
-  .pip.active { width: 22px; border-radius: 4px; background: var(--blue); }
+.quote-block { background: #F0F6FF; border-color: var(--blue); margin-top: 10px; }
+.quote-text { font-size: 14px; font-style: italic; color: var(--blue-dark); line-height: 1.5; }
+.quote-author { font-size: 10px; font-weight: 800; color: var(--blue); margin-top: 8px; text-transform: uppercase; }
 
-  /* ── color helpers per card ── */
-  .c-blue  { color: var(--blue); }
-  .c-green { color: var(--green-dark); }
-  .c-purple{ color: #534AB7; }
-  .c-amber { color: #8A5A00; }
-  .c-red   { color: #8B3112; }
+/* ── timeline ── */
+.timeline { display: flex; flex-direction: column; gap: 4px; }
+.tl-item { display: flex; gap: 14px; }
+.tl-spine { display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; z-index: 1; }
+.tl-line { width: 2px; flex-grow: 1; background: #eee; margin: 4px 0; }
+.tl-content { padding-bottom: 15px; }
+.tl-year { font-size: 12px; font-weight: 800; margin-bottom: 2px; }
+.tl-desc { font-size: 14px; color: var(--soft); line-height: 1.5; }
 
-  .bg-blue   { background: var(--blue-light); color: var(--blue-dark); }
-  .bg-green  { background: var(--green-light); color: var(--green-dark); }
-  .bg-purple { background: #EEEDFE; color: #3C3489; }
-  .bg-amber  { background: #FEF3DC; color: #7A4F00; }
-  .bg-red    { background: #FEF0EA; color: #8B3112; }
-  .bg-teal   { background: #E1F5EE; color: #085041; }
+/* ── navigation ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  transition: all .2s;
+}
+.btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.btn-prev { background: #fff; color: var(--blue); border: 2px solid var(--blue); }
+.btn-next { background: var(--blue); color: #fff; }
+.dots { display: flex; gap: 8px; }
+.dot-btn {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot-btn.on { width: 24px; border-radius: 4px; background: var(--blue); }
 
-  @media (max-width: 480px) {
-    body { padding: 1.25rem .75rem; }
-    .card-top, .card-body { padding: 16px; }
-    .kpi-row { grid-template-columns: 1fr 1fr; }
-    .nav-btn { padding: 7px 14px; font-size: 12px; }
-  }
+/* ══ THEMES ══ */
+.c1 .card-head { background: linear-gradient(135deg, #002D5E, #005EB8); }
+.c1 .dot { background: var(--blue); }
+.c1 .kpi-val { color: var(--blue); }
+.c2 .card-head { background: linear-gradient(135deg, #134E10, #2E7D1E); }
+.c2 .dot, .c2 .kpi-val { background: none; color: #2E7D1E; }
+.c2 .dot { background: #2E7D1E; }
+.c3 .card-head { background: linear-gradient(135deg, #1E1B6B, #4440D0); }
+.c3 .dot { background: #4440D0; }
+.c4 .card-head { background: linear-gradient(135deg, #5C3A00, #C07800); }
+.c4 .dot { background: #C07800; }
+.c5 .card-head { background: linear-gradient(135deg, #4A0E00, #8C2A14); }
+.c5 .dot { background: #8C2A14; }
+.c6 .card-head { background: linear-gradient(135deg, #004236, #008060); }
+.c6 .tl-dot { background: #008060; }
+.c6 .tl-year { color: #008060; }
+
+@media (max-width: 600px) {
+  .card-head, .card-body { padding: 25px 25px; }
+  .card-title { font-size: 22px; }
+  .kpi-row { grid-template-columns: 1fr; }
+  .card-head::before { font-size: 100px; right: -5px; }
+}
 </style>
 </head>
 <body>
 
-<div class="deck-wrap">
-  <div class="deck-head">
-    <span class="deck-eyebrow">EU Inc. — Approfondimento</span>
-    <span class="deck-counter" id="ctr">1 / 6</span>
+<div class="deck-outer">
+  <div class="deck-bar">
+    <div class="deck-label"><span class="pip-live"></span> EU Inc. — Promos Italia</div>
+    <div class="deck-counter" id="ctr">1 / 6</div>
   </div>
 
-  <div class="deck-track-wrap">
-    <div class="deck-track" id="track">
-
-      <!-- 01 -->
-      <div class="card">
-        <div class="card-top">
-          <div class="card-num c-blue">01 — Panoramica</div>
-          <div class="card-title">Cos'è EU Inc. e perché nasce</div>
-          <span class="card-badge bg-blue">Contesto</span>
+  <div class="track-clip">
+    <div class="track" id="track">
+      <div class="card c1">
+        <div class="card-head" data-n="01">
+          <div class="card-eyebrow">01 — Panoramica</div>
+          <div class="card-title">Cos'è EU Inc.<br>e perché nasce</div>
+          <span class="card-badge">Contesto Strategico</span>
         </div>
         <div class="card-body">
-          <div class="point"><span class="dot" style="background:var(--blue)"></span>EU Inc. è il nuovo regime giuridico societario armonizzato proposto dalla Commissione europea il 18 marzo 2026, cuore del cosiddetto "28° regime".</div>
-          <div class="point"><span class="dot" style="background:var(--blue)"></span>Non sostituisce le forme societarie nazionali (SRL, SPA…), ma si affianca come alternativa opzionale valida in tutti i 27 Stati membri.</div>
-          <div class="point"><span class="dot" style="background:var(--blue)"></span>Nasce dalla frammentazione normativa europea: oggi le imprese fronteggiano 27 ordinamenti e oltre 60 forme societarie nazionali, con ritardi di settimane o mesi nella costituzione.</div>
-          <div class="point"><span class="dot" style="background:var(--blue)"></span>Si inserisce nel solco del Rapporto Draghi sulla competitività e del Competitiveness Compass 2025.</div>
+          <div class="point"><span class="dot"></span><span>EU Inc. è il regime societario armonizzato proposto dalla Commissione europea il <strong>18 marzo 2026</strong>.</span></div>
+          <div class="point"><span class="dot"></span><span>Si affianca alle forme nazionali (SRL, SPA) come <strong>alternativa opzionale</strong> valida in tutti i 27 Stati membri.</span></div>
+          <div class="point"><span class="dot"></span><span>Mira a eliminare la frammentazione di <strong>oltre 60 forme societarie</strong> diverse che rallentano la crescita.</span></div>
+          <div class="point"><span class="dot"></span><span>Basato sul <strong>Rapporto Draghi</strong> per rilanciare la competitività dell'Unione.</span></div>
         </div>
       </div>
 
-      <!-- 02 -->
-      <div class="card">
-        <div class="card-top">
-          <div class="card-num c-green">02 — Meccanismo</div>
-          <div class="card-title">Come funziona: registrazione e struttura</div>
-          <span class="card-badge bg-green">Operativo</span>
+      <div class="card c2">
+        <div class="card-head" data-n="02">
+          <div class="card-eyebrow">02 — Meccanismo</div>
+          <div class="card-title">Registrazione,<br>costi e struttura</div>
+          <span class="card-badge">Operatività Digitale</span>
         </div>
         <div class="card-body">
           <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">48h</div><div class="kpi-lbl">Tempo max di costituzione online</div></div>
-            <div class="kpi"><div class="kpi-val">&lt;€100</div><div class="kpi-lbl">Costo massimo di registrazione</div></div>
-            <div class="kpi"><div class="kpi-val">€0</div><div class="kpi-lbl">Capitale sociale minimo richiesto</div></div>
+            <div class="kpi"><div class="kpi-val">48h</div><div class="kpi-lbl">Tempo di costituzione</div></div>
+            <div class="kpi"><div class="kpi-val">&lt;100€</div><div class="kpi-lbl">Costo registrazione</div></div>
+            <div class="kpi"><div class="kpi-val">0€</div><div class="kpi-lbl">Capitale minimo</div></div>
           </div>
-          <div class="point"><span class="dot" style="background:var(--green-dark)"></span>Il Registro-UE digitale (API-first) centralizza la registrazione: basta un modulo online con nome, indirizzo, fondatori, azionisti e CDA.</div>
-          <div class="point"><span class="dot" style="background:var(--green-dark)"></span>I dati vengono forniti una sola volta e distribuiti ai registri nazionali. Estratti aziendali in tempo reale, accessibili tramite codice univoco.</div>
-          <div class="point"><span class="dot" style="background:var(--green-dark)"></span>Libera scelta del paese UE in cui costituirsi e dove stabilire la sede legale.</div>
+          <div class="point"><span class="dot"></span><span><strong>Registro-UE digitale:</strong> modulo online unico per fondatori e azionisti.</span></div>
+          <div class="point"><span class="dot"></span><span>Principio <strong>"Once Only"</strong>: i dati si inseriscono una volta e valgono per tutta l'UE.</span></div>
         </div>
       </div>
 
-      <!-- 03 -->
-      <div class="card">
-        <div class="card-top">
-          <div class="card-num c-purple">03 — Impatto PMI</div>
-          <div class="card-title">Cosa cambia per le PMI italiane</div>
-          <span class="card-badge bg-purple">PMI &amp; Export</span>
+      <div class="card c3">
+        <div class="card-head" data-n="03">
+          <div class="card-eyebrow">03 — Impatto PMI</div>
+          <div class="card-title">Cosa cambia per<br>le PMI italiane</div>
+          <span class="card-badge">PMI &amp; Export</span>
         </div>
         <div class="card-body">
-          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong>Espansione transfrontaliera semplificata.</strong> Le PMI potranno operare in più paesi UE senza dover costituire filiali locali con regole diverse.</span></div>
-          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong>Riduzione dei costi di compliance.</strong> Un solo quadro normativo abbatte le spese legali e amministrative per adeguarsi a ogni ordinamento nazionale.</span></div>
-          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong>Accesso facilitato ai capitali.</strong> Il 28° regime include misure per agevolare finanziamenti e attrarre investitori europei e internazionali.</span></div>
-          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong>Stock option europee.</strong> Piani di incentivazione per dipendenti su scala UE, tassati solo al momento della vendita delle quote.</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Espansione semplificata:</strong> opera in più paesi senza filiali locali.</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Costi ridotti:</strong> un solo quadro normativo abbatte le spese legali.</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Stock option:</strong> tassate solo alla vendita per attrarre talenti.</span></div>
         </div>
       </div>
 
-      <!-- 04 -->
-      <div class="card">
-        <div class="card-top">
-          <div class="card-num c-amber">04 — Startup &amp; Scaleup</div>
-          <div class="card-title">Definizioni armonizzate e vantaggi specifici</div>
-          <span class="card-badge bg-amber">Innovazione</span>
+      <div class="card c4">
+        <div class="card-head" data-n="04">
+          <div class="card-eyebrow">04 — Definizioni</div>
+          <div class="card-title">Startup e Scaleup<br>Armonizzate</div>
+          <span class="card-badge">Innovazione</span>
         </div>
         <div class="card-body">
-          <p style="font-size:12px;color:var(--gray-mid);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Raccomandazione UE — definizioni armonizzate</p>
-          <div class="point"><span class="dot" style="background:#BA7517"></span><span><strong>Impresa innovativa:</strong> investimenti R&amp;S ≥ 10% dei costi operativi o ≥ 5% del fatturato.</span></div>
-          <div class="point"><span class="dot" style="background:#BA7517"></span><span><strong>Startup innovativa:</strong> meno di 100 dipendenti, fatturato o bilancio ≤ 10M€, età massima 10 anni.</span></div>
-          <div class="point"><span class="dot" style="background:#BA7517"></span><span><strong>Scaleup innovativa:</strong> in espansione, fatturato o bilancio oltre 10M€ e crescita media annua &gt; 20% negli ultimi due anni.</span></div>
-          <div class="point"><span class="dot" style="background:#BA7517"></span>Le startup EU Inc. accedono a procedure di insolvenza semplificate, rapide e digitali per agevolare anche la cessazione dell'attività.</div>
+          <div class="point"><span class="dot"></span><span><strong>Startup:</strong> < 100 dipendenti, < 10M€ fatturato, max 10 anni.</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Scaleup:</strong> > 10M€ fatturato e crescita > 20% annuo.</span></div>
+          <div class="point"><span class="dot"></span><span>Procedure di insolvenza rapide e digitali per chi rischia.</span></div>
         </div>
       </div>
 
-      <!-- 05 -->
-      <div class="card">
-        <div class="card-top">
-          <div class="card-num c-red">05 — Limiti &amp; Criticità</div>
-          <div class="card-title">Cosa non cambia e i nodi ancora aperti</div>
-          <span class="card-badge bg-red">Attenzione</span>
+      <div class="card c5">
+        <div class="card-head" data-n="05">
+          <div class="card-eyebrow">05 — Criticità</div>
+          <div class="card-title">I nodi aperti e<br>cosa non cambia</div>
+          <span class="card-badge">Attenzione</span>
         </div>
         <div class="card-body">
           <div class="warn-box">
-            <div class="warn-title">Rimane invariato</div>
-            <div class="warn-body">Diritto del lavoro, fiscalità e regimi previdenziali restano nazionali. EU Inc. non può essere usata per aggirare obblighi verso i lavoratori.</div>
+            <div class="warn-title">Punto Chiave</div>
+            <div class="warn-body">Fiscalità e diritto del lavoro restano <strong>nazionali</strong>. EU Inc. non è una scorciatoia fiscale.</div>
           </div>
-          <div class="point"><span class="dot" style="background:#8B3112"></span>La dipendenza dai registri nazionali potrebbe generare differenze applicative tra paesi, rallentando l'uniformità sperata.</div>
-          <div class="point"><span class="dot" style="background:#8B3112"></span>L'iter legislativo è ancora lungo: Parlamento e Consiglio UE devono trovare accordo entro fine 2026.</div>
-          <div class="point"><span class="dot" style="background:#8B3112"></span>Italian Tech Alliance chiede un vero registro unico europeo e un tribunale centrale, non solo un ulteriore livello sopra quelli nazionali.</div>
+          <div class="point"><span class="dot"></span><span>Rischio di differenze applicative tra i vari registri nazionali.</span></div>
         </div>
       </div>
 
-      <!-- 06 -->
-      <div class="card">
-        <div class="card-top">
-          <div class="card-num" style="color:#0F6E56">06 — Roadmap</div>
-          <div class="card-title">Prossimi passi e timeline</div>
-          <span class="card-badge bg-teal">Calendario</span>
+      <div class="card c6">
+        <div class="card-head" data-n="06">
+          <div class="card-eyebrow">06 — Roadmap</div>
+          <div class="card-title">Timeline e<br>prossimi passi</div>
+          <span class="card-badge">Calendario</span>
         </div>
         <div class="card-body">
           <div class="timeline">
             <div class="tl-item">
-              <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
-              <div class="tl-content"><div class="tl-year">Gennaio 2025</div><div class="tl-desc">Competitiveness Compass: la Commissione annuncia il 28° regime come priorità strategica.</div></div>
+              <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+              <div class="tl-content"><div class="tl-year">Marzo 2026</div><div class="tl-desc">Presentazione ufficiale proposta.</div></div>
             </div>
             <div class="tl-item">
-              <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
-              <div class="tl-content"><div class="tl-year">18 marzo 2026</div><div class="tl-desc">Presentazione ufficiale della proposta di Regolamento EU Inc. da parte della Commissione europea.</div></div>
+              <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+              <div class="tl-content"><div class="tl-year">Fine 2026</div><div class="tl-desc">Accordo Parlamento e Consiglio.</div></div>
             </div>
             <div class="tl-item">
-              <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
-              <div class="tl-content"><div class="tl-year">Fine 2026 (obiettivo)</div><div class="tl-desc">Accordo tra Parlamento europeo e Consiglio UE.</div></div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-line-wrap"><div class="tl-dot"></div></div>
-              <div class="tl-content"><div class="tl-year">2028 (obiettivo)</div><div class="tl-desc">Piena entrata in vigore: "un'Europa, un mercato unico".</div></div>
+              <div class="tl-spine"><div class="tl-dot"></div></div>
+              <div class="tl-content"><div class="tl-year">2028</div><div class="tl-desc">Piena entrata in vigore.</div></div>
             </div>
           </div>
-          <div class="quote-block" style="margin-top:auto">
-            <div class="quote-text">Promos Italia segue l'evoluzione normativa europea per supportare le PMI italiane nel cogliere per prime le opportunità del mercato unico.</div>
-            <div class="quote-author">Promos Italia — Approfondimento normativo</div>
+          <div class="quote-block">
+            <div class="quote-text">Supportiamo le PMI nel cogliere le opportunità del mercato unico.</div>
+            <div class="quote-author">Promos Italia</div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
   <div class="nav">
-    <button class="nav-btn" id="prev" onclick="go(-1)" disabled>← Indietro</button>
+    <button class="btn btn-prev" id="prev" onclick="go(-1)">Indietro</button>
     <div class="dots" id="dots"></div>
-    <button class="nav-btn" id="next" onclick="go(1)">Avanti →</button>
+    <button class="btn btn-next" id="next" onclick="go(1)">Avanti</button>
   </div>
 </div>
 
 <script>
-const total = 6;
-let cur = 0;
+const N = 6;
+let i = 0;
 const track = document.getElementById('track');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-const ctrEl  = document.getElementById('ctr');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const ctr = document.getElementById('ctr');
 const dotsEl = document.getElementById('dots');
 
 function buildDots() {
   dotsEl.innerHTML = '';
-  for (let i = 0; i < total; i++) {
+  for (let k = 0; k < N; k++) {
     const b = document.createElement('button');
-    b.className = 'pip' + (i === cur ? ' active' : '');
-    b.setAttribute('aria-label', 'Card ' + (i + 1));
-    b.onclick = () => { cur = i; update(); };
+    b.className = 'dot-btn' + (k === i ? ' on' : '');
+    b.onclick = () => { i = k; upd(); };
     dotsEl.appendChild(b);
   }
 }
 
-function update() {
-  const w = track.parentElement.offsetWidth;
-  track.style.transform = `translateX(-${cur * (w + 20)}px)`;
-  ctrEl.textContent = `${cur + 1} / ${total}`;
-  prevBtn.disabled = cur === 0;
-  nextBtn.disabled = cur === total - 1;
+function upd() {
+  const w = track.offsetWidth / N;
+  track.style.transform = `translateX(-${i * 100}%)`;
+  ctr.textContent = `${i + 1} / ${N}`;
+  prev.disabled = i === 0;
+  next.disabled = i === N - 1;
   buildDots();
 }
 
-function go(dir) { cur = Math.max(0, Math.min(total - 1, cur + dir)); update(); }
+function go(d) { i = Math.max(0, Math.min(N - 1, i + d)); upd(); }
 
 buildDots();
-update();
-window.addEventListener('resize', update);
-
-/* swipe */
-let sx = null;
-track.parentElement.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
-track.parentElement.addEventListener('touchend',   e => {
-  if (sx === null) return;
-  if (Math.abs(e.changedTouches[0].clientX - sx) > 40) go(e.changedTouches[0].clientX < sx ? 1 : -1);
-  sx = null;
-});
+upd();
+window.addEventListener('resize', upd);
 </script>
 </body>
 </html>
