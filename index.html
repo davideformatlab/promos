@@ -3,22 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EU Inc. — Promos Italia</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>EU Inc. — La rivoluzione del mercato unico | Promos Italia</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --blue: #005EB8;
   --blue-dark: #003A7A;
-  --blue-deep: #001F4D;
-  --blue-light: #D0E6FF;
+  --blue-deep: #0A1628;
   --green: #9CF088;
-  --green-dark: #2E7D1E;
+  --green-dark: #1A5210;
   --white: #FFFFFF;
   --off: #F4F7FA;
-  --text: #0A1628;
-  --soft: #4A5C7A;
+  --text: #111827;
+  --soft: #4B5563;
 }
 
 html, body {
@@ -33,12 +32,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 20px;
 }
 
 .deck-outer { width: 100%; max-width: 680px; }
 
-/* ── top bar ── */
+/* ── UI Bar ── */
 .deck-bar {
   display: flex;
   align-items: center;
@@ -61,206 +60,93 @@ body {
   background: var(--green);
   box-shadow: 0 0 0 3px rgba(156,240,136,.3);
 }
-.deck-counter {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--soft);
-}
+.deck-counter { font-size: 13px; font-weight: 700; color: var(--soft); }
 
-/* ── track & slider ── */
-.track-clip { overflow: hidden; border-radius: 24px; }
+/* ── Slider Engine ── */
+.track-clip { overflow: hidden; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,30,80,.1); }
 .track {
   display: flex;
-  transition: transform .5s cubic-bezier(.2, 1, .3, 1);
+  transition: transform .6s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;
 }
 
 .card {
   flex: 0 0 100%;
-  border-radius: 24px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   background: var(--white);
-  box-shadow: 0 10px 40px rgba(0,30,80,.08);
+  min-height: 520px;
 }
 
-/* ── card header ── */
+/* ── Header ── */
 .card-head {
-  padding: 35px 40px 30px;
+  padding: 40px 40px 30px;
   position: relative;
   overflow: hidden;
   color: #fff;
 }
-
 .card-head::before {
   content: attr(data-n);
   position: absolute;
-  right: 10px;
-  top: 50%;
+  right: -5px; top: 50%;
   transform: translateY(-50%);
-  font-size: 140px;
-  font-weight: 800;
-  opacity: .08;
-  pointer-events: none;
+  font-size: 150px; font-weight: 800;
+  opacity: .1; pointer-events: none;
 }
+.card-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .8; margin-bottom: 8px; }
+.card-title { font-size: 28px; font-weight: 800; line-height: 1.2; position: relative; z-index: 1; margin-bottom: 15px; }
+.card-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 5px 12px; border-radius: 6px; background: rgba(255,255,255,.15); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.2); }
 
-.card-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  opacity: .8;
-  margin-bottom: 8px;
-}
+/* ── Body ── */
+.card-body { padding: 35px 40px; display: flex; flex-direction: column; gap: 18px; flex-grow: 1; }
+.point { display: flex; gap: 14px; font-size: 15px; line-height: 1.6; color: var(--soft); }
+.dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 10px; flex-shrink: 0; }
 
-.card-title {
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 1;
-}
+/* ── KPI Grid ── */
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 5px; }
+.kpi { background: var(--off); border-radius: 16px; padding: 18px 10px; text-align: center; border: 1px solid rgba(0,0,0,0.03); }
+.kpi-val { font-size: 24px; font-weight: 800; color: var(--blue); line-height: 1; margin-bottom: 5px; }
+.kpi-lbl { font-size: 11px; font-weight: 600; color: var(--soft); line-height: 1.3; }
 
-.card-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 6px;
-  background: rgba(255,255,255,.15);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,.2);
-}
-
-/* ── card body ── */
-.card-body {
-  padding: 30px 40px 35px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex-grow: 1;
-}
-
-.point {
-  display: flex;
-  gap: 12px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--soft);
-}
-.dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  margin-top: 9px;
-  flex-shrink: 0;
-}
-.point strong { color: var(--text); }
-
-/* ── kpi ── */
-.kpi-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 5px 0;
-}
-.kpi {
-  background: var(--off);
-  border-radius: 16px;
-  padding: 16px 12px;
-  text-align: center;
-}
-.kpi-val {
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.kpi-lbl {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--soft);
-  line-height: 1.3;
-}
-
-/* ── warn/quote ── */
-.warn-box, .quote-block {
-  padding: 18px 20px;
-  border-radius: 12px;
-  border-left: 4px solid;
-}
-.warn-box { background: #FFF5F0; border-color: #D04010; }
-.warn-title { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #D04010; margin-bottom: 4px; }
-.warn-body { font-size: 14px; line-height: 1.5; color: #6B3520; }
-
-.quote-block { background: #F0F6FF; border-color: var(--blue); margin-top: 10px; }
-.quote-text { font-size: 14px; font-style: italic; color: var(--blue-dark); line-height: 1.5; }
-.quote-author { font-size: 10px; font-weight: 800; color: var(--blue); margin-top: 8px; text-transform: uppercase; }
-
-/* ── timeline ── */
-.timeline { display: flex; flex-direction: column; gap: 4px; }
-.tl-item { display: flex; gap: 14px; }
-.tl-spine { display: flex; flex-direction: column; align-items: center; }
-.tl-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; z-index: 1; }
-.tl-line { width: 2px; flex-grow: 1; background: #eee; margin: 4px 0; }
-.tl-content { padding-bottom: 15px; }
-.tl-year { font-size: 12px; font-weight: 800; margin-bottom: 2px; }
+/* ── Timeline & Elements ── */
+.timeline { display: flex; flex-direction: column; }
+.tl-item { display: flex; gap: 16px; }
+.tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); margin-top: 6px; }
+.tl-content { padding-bottom: 20px; }
+.tl-year { font-size: 12px; font-weight: 800; color: var(--blue-dark); margin-bottom: 3px; }
 .tl-desc { font-size: 14px; color: var(--soft); line-height: 1.5; }
 
-/* ── navigation ── */
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 25px;
-}
-.btn {
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  border-radius: 50px;
-  padding: 12px 24px;
-  cursor: pointer;
-  border: none;
-  transition: all .2s;
-}
+.warn-box { padding: 18px; border-radius: 12px; border-left: 4px solid #D04010; background: #FFF5F0; }
+.warn-title { font-size: 11px; font-weight: 800; color: #D04010; text-transform: uppercase; margin-bottom: 4px; }
+
+/* ── CTA Final Card ── */
+.logo-box { background: var(--blue-deep); padding: 25px; border-radius: 16px; width: 100%; display: flex; justify-content: center; margin-bottom: 10px; }
+.logo-box img { max-width: 200px; height: auto; }
+
+/* ── Nav ── */
+.nav { display: flex; align-items: center; justify-content: space-between; margin-top: 25px; }
+.btn { font-family: inherit; font-size: 14px; font-weight: 700; border-radius: 50px; padding: 12px 28px; cursor: pointer; border: none; transition: all .2s; }
 .btn:disabled { opacity: 0.3; cursor: not-allowed; }
 .btn-prev { background: #fff; color: var(--blue); border: 2px solid var(--blue); }
-.btn-next { background: var(--blue); color: #fff; }
+.btn-next { background: var(--blue); color: #fff; box-shadow: 0 4px 15px rgba(0,94,184,0.3); }
+.btn-cta { background: var(--green); color: var(--green-dark); width: 100%; font-size: 16px; padding: 18px; }
+
 .dots { display: flex; gap: 8px; }
-.dot-btn {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #CBD5E1;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-}
+.dot-btn { width: 8px; height: 8px; border-radius: 50%; background: #CBD5E1; border: none; cursor: pointer; transition: 0.3s; }
 .dot-btn.on { width: 24px; border-radius: 4px; background: var(--blue); }
 
-/* ══ THEMES ══ */
-.c1 .card-head { background: linear-gradient(135deg, #002D5E, #005EB8); }
-.c1 .dot { background: var(--blue); }
-.c1 .kpi-val { color: var(--blue); }
-.c2 .card-head { background: linear-gradient(135deg, #134E10, #2E7D1E); }
-.c2 .dot, .c2 .kpi-val { background: none; color: #2E7D1E; }
-.c2 .dot { background: #2E7D1E; }
-.c3 .card-head { background: linear-gradient(135deg, #1E1B6B, #4440D0); }
-.c3 .dot { background: #4440D0; }
-.c4 .card-head { background: linear-gradient(135deg, #5C3A00, #C07800); }
-.c4 .dot { background: #C07800; }
-.c5 .card-head { background: linear-gradient(135deg, #4A0E00, #8C2A14); }
-.c5 .dot { background: #8C2A14; }
-.c6 .card-head { background: linear-gradient(135deg, #004236, #008060); }
-.c6 .tl-dot { background: #008060; }
-.c6 .tl-year { color: #008060; }
+/* Themes */
+.c1 .card-head { background: linear-gradient(135deg, #001F4D, #005EB8); } .c1 .dot { background: var(--blue); }
+.c2 .card-head { background: linear-gradient(135deg, #0D3B08, #2E7D1E); } .c2 .dot { background: #2E7D1E; }
+.c3 .card-head { background: linear-gradient(135deg, #1E1B6B, #4440D0); } .c3 .dot { background: #4440D0; }
+.c4 .card-head { background: linear-gradient(135deg, #5C3A00, #C07800); } .c4 .dot { background: #C07800; }
+.c5 .card-head { background: linear-gradient(135deg, #4A0E00, #8C2A14); } .c5 .dot { background: #8C2A14; }
+.c6 .card-head { background: linear-gradient(135deg, #004236, #008060); } .c6 .dot { background: #008060; }
 
 @media (max-width: 600px) {
-  .card-head, .card-body { padding: 25px 25px; }
-  .card-title { font-size: 22px; }
+  .card-head, .card-body { padding: 30px 25px; }
   .kpi-row { grid-template-columns: 1fr; }
-  .card-head::before { font-size: 100px; right: -5px; }
+  .card-title { font-size: 24px; }
 }
 </style>
 </head>
@@ -268,111 +154,129 @@ body {
 
 <div class="deck-outer">
   <div class="deck-bar">
-    <div class="deck-label"><span class="pip-live"></span> EU Inc. — Promos Italia</div>
-    <div class="deck-counter" id="ctr">1 / 6</div>
+    <div class="deck-label"><span class="pip-live"></span> EU Inc. — Analisi Mercato Unico</div>
+    <div class="deck-counter" id="ctr">1 / 7</div>
   </div>
 
   <div class="track-clip">
     <div class="track" id="track">
+      
       <div class="card c1">
         <div class="card-head" data-n="01">
-          <div class="card-eyebrow">01 — Panoramica</div>
-          <div class="card-title">Cos'è EU Inc.<br>e perché nasce</div>
-          <span class="card-badge">Contesto Strategico</span>
+          <div class="card-eyebrow">Il Problema</div>
+          <div class="card-title">Oltre la frammentazione<br>normativa europea</div>
+          <span class="card-badge">Scenario Attuale</span>
         </div>
         <div class="card-body">
-          <div class="point"><span class="dot"></span><span>EU Inc. è il regime societario armonizzato proposto dalla Commissione europea il <strong>18 marzo 2026</strong>.</span></div>
-          <div class="point"><span class="dot"></span><span>Si affianca alle forme nazionali (SRL, SPA) come <strong>alternativa opzionale</strong> valida in tutti i 27 Stati membri.</span></div>
-          <div class="point"><span class="dot"></span><span>Mira a eliminare la frammentazione di <strong>oltre 60 forme societarie</strong> diverse che rallentano la crescita.</span></div>
-          <div class="point"><span class="dot"></span><span>Basato sul <strong>Rapporto Draghi</strong> per rilanciare la competitività dell'Unione.</span></div>
+          <div class="point"><span class="dot"></span><span>Oggi le imprese affrontano <strong>27 ordinamenti giuridici</strong> e oltre 60 forme societarie differenti.</span></div>
+          <div class="point"><span class="dot"></span><span>La burocrazia ritarda la costituzione di settimane, frenando la competitività e le economie di scala.</span></div>
+          <div class="point"><span class="dot"></span><span>EU Inc. nasce per offrire uno <strong>standard comune</strong> e un ambiente prevedibile.</span></div>
         </div>
       </div>
 
       <div class="card c2">
         <div class="card-head" data-n="02">
-          <div class="card-eyebrow">02 — Meccanismo</div>
-          <div class="card-title">Registrazione,<br>costi e struttura</div>
-          <span class="card-badge">Operatività Digitale</span>
+          <div class="card-eyebrow">La Promessa</div>
+          <div class="card-title">Efficienza, velocità<br>e digitalizzazione</div>
+          <span class="card-badge">Vantaggi Chiave</span>
         </div>
         <div class="card-body">
           <div class="kpi-row">
             <div class="kpi"><div class="kpi-val">48h</div><div class="kpi-lbl">Tempo di costituzione</div></div>
-            <div class="kpi"><div class="kpi-val">&lt;100€</div><div class="kpi-lbl">Costo registrazione</div></div>
+            <div class="kpi"><div class="kpi-val">&lt;100€</div><div class="kpi-lbl">Costo massimo</div></div>
             <div class="kpi"><div class="kpi-val">0€</div><div class="kpi-lbl">Capitale minimo</div></div>
           </div>
-          <div class="point"><span class="dot"></span><span><strong>Registro-UE digitale:</strong> modulo online unico per fondatori e azionisti.</span></div>
-          <div class="point"><span class="dot"></span><span>Principio <strong>"Once Only"</strong>: i dati si inseriscono una volta e valgono per tutta l'UE.</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Registro-UE digitale:</strong> verifica dell'identità e formalità interamente online (API-first).</span></div>
+          <div class="point"><span class="dot"></span><span>Libera scelta dello Stato membro per sede legale e costituzione.</span></div>
         </div>
       </div>
 
       <div class="card c3">
         <div class="card-head" data-n="03">
-          <div class="card-eyebrow">03 — Impatto PMI</div>
-          <div class="card-title">Cosa cambia per<br>le PMI italiane</div>
-          <span class="card-badge">PMI &amp; Export</span>
+          <div class="card-eyebrow">Focus Innovazione</div>
+          <div class="card-title">Supporto a Startup<br>e Scaleup innovative</div>
+          <span class="card-badge">Crescita Globale</span>
         </div>
         <div class="card-body">
-          <div class="point"><span class="dot"></span><span><strong>Espansione semplificata:</strong> opera in più paesi senza filiali locali.</span></div>
-          <div class="point"><span class="dot"></span><span><strong>Costi ridotti:</strong> un solo quadro normativo abbatte le spese legali.</span></div>
-          <div class="point"><span class="dot"></span><span><strong>Stock option:</strong> tassate solo alla vendita per attrarre talenti.</span></div>
+          <div class="point"><span class="dot"></span><span>Misure specifiche per trasformare idee locali in imprese di successo globale.</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Insolvenza semplificata:</strong> procedure rapide per agevolare la chiusura e il "re-start".</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Talenti:</strong> stock option europee tassate solo al momento della vendita.</span></div>
         </div>
       </div>
 
       <div class="card c4">
         <div class="card-head" data-n="04">
-          <div class="card-eyebrow">04 — Definizioni</div>
-          <div class="card-title">Startup e Scaleup<br>Armonizzate</div>
-          <span class="card-badge">Innovazione</span>
+          <div class="card-eyebrow">Operatività</div>
+          <div class="card-title">Come funziona la<br>nuova registrazione</div>
+          <span class="card-badge">Digital-First</span>
         </div>
         <div class="card-body">
-          <div class="point"><span class="dot"></span><span><strong>Startup:</strong> < 100 dipendenti, < 10M€ fatturato, max 10 anni.</span></div>
-          <div class="point"><span class="dot"></span><span><strong>Scaleup:</strong> > 10M€ fatturato e crescita > 20% annuo.</span></div>
-          <div class="point"><span class="dot"></span><span>Procedure di insolvenza rapide e digitali per chi rischia.</span></div>
+          <div class="point"><span class="dot"></span><span>Modulo online unico: dati dei soci e del CDA inseriti una sola volta (Once Only).</span></div>
+          <div class="point"><span class="dot"></span><span><strong>Fede pubblica:</strong> il Registro-UE controlla la legalità dei documenti depositati.</span></div>
+          <div class="point"><span class="dot"></span><span>Estratti aziendali in tempo reale accessibili tramite codice univoco protetto.</span></div>
         </div>
       </div>
 
       <div class="card c5">
         <div class="card-head" data-n="05">
-          <div class="card-eyebrow">05 — Criticità</div>
-          <div class="card-title">I nodi aperti e<br>cosa non cambia</div>
-          <span class="card-badge">Attenzione</span>
+          <div class="card-eyebrow">Cosa Sapere</div>
+          <div class="card-title">Limiti e tutele della<br>nuova forma giuridica</div>
+          <span class="card-badge">Compliance</span>
         </div>
         <div class="card-body">
           <div class="warn-box">
-            <div class="warn-title">Punto Chiave</div>
-            <div class="warn-body">Fiscalità e diritto del lavoro restano <strong>nazionali</strong>. EU Inc. non è una scorciatoia fiscale.</div>
+            <div class="warn-title">Nota Fiscale e Lavoro</div>
+            <div class="warn-body">Fiscalità, previdenza e diritto del lavoro rimangono di competenza <strong>nazionale</strong>.</div>
           </div>
-          <div class="point"><span class="dot"></span><span>Rischio di differenze applicative tra i vari registri nazionali.</span></div>
+          <div class="point"><span class="dot"></span><span>Garantita la parità di trattamento con le SRL nazionali (Blacklist di pratiche vietate).</span></div>
+          <div class="point"><span class="dot"></span><span>Un solo regime per ridurre gli oneri amministrativi in tutta l'Unione.</span></div>
         </div>
       </div>
 
       <div class="card c6">
         <div class="card-head" data-n="06">
-          <div class="card-eyebrow">06 — Roadmap</div>
-          <div class="card-title">Timeline e<br>prossimi passi</div>
-          <span class="card-badge">Calendario</span>
+          <div class="card-eyebrow">Il Futuro</div>
+          <div class="card-title">Roadmap verso il<br>mercato unico 2028</div>
+          <span class="card-badge">Timeline</span>
         </div>
         <div class="card-body">
           <div class="timeline">
             <div class="tl-item">
-              <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-              <div class="tl-content"><div class="tl-year">Marzo 2026</div><div class="tl-desc">Presentazione ufficiale proposta.</div></div>
+              <div class="tl-dot"></div>
+              <div class="tl-content"><div class="tl-year">18 Marzo 2026</div><div class="tl-desc">Presentazione ufficiale della proposta EU Inc.</div></div>
             </div>
             <div class="tl-item">
-              <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-              <div class="tl-content"><div class="tl-year">Fine 2026</div><div class="tl-desc">Accordo Parlamento e Consiglio.</div></div>
+              <div class="tl-dot"></div>
+              <div class="tl-content"><div class="tl-year">Fine 2026</div><div class="tl-desc">Obiettivo accordo tra Parlamento e Consiglio UE.</div></div>
             </div>
             <div class="tl-item">
-              <div class="tl-spine"><div class="tl-dot"></div></div>
-              <div class="tl-content"><div class="tl-year">2028</div><div class="tl-desc">Piena entrata in vigore.</div></div>
+              <div class="tl-dot"></div>
+              <div class="tl-content"><div class="tl-year">2028</div><div class="tl-desc">Piena entrata in vigore: "Un'Europa, un mercato unico".</div></div>
             </div>
-          </div>
-          <div class="quote-block">
-            <div class="quote-text">Supportiamo le PMI nel cogliere le opportunità del mercato unico.</div>
-            <div class="quote-author">Promos Italia</div>
           </div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-head" style="background: var(--blue-deep);">
+          <div class="card-eyebrow">Approfondimento</div>
+          <div class="card-title">Pronto per il<br>prossimo passo?</div>
+          <span class="card-badge">M_Globale</span>
+        </div>
+        <div class="card-body" style="justify-content: center; align-items: center; text-align: center;">
+          <div class="logo-box">
+            <img src="https://mglobale.promositalia.com/imgpub/1893636/0/0/logomglobale-n.webp" alt="Logo M_Globale">
+          </div>
+          <p style="font-size: 15px; color: var(--soft); margin-bottom: 25px; line-height: 1.6;">
+            Leggi l'analisi completa dei nostri esperti sull'impatto di EU Inc. per le imprese italiane.
+          </p>
+          <a href="https://mglobale.promositalia.com/contrattualistica/tutte-le-news/eu-inc-nuova-forma-societaria-per-le-imprese-europee.kl" 
+             target="_blank" style="text-decoration: none; width: 100%;">
+            <button class="btn btn-cta">Leggi l'analisi completa →</button>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -384,7 +288,7 @@ body {
 </div>
 
 <script>
-const N = 6;
+const N = 7;
 let i = 0;
 const track = document.getElementById('track');
 const prev = document.getElementById('prev');
@@ -397,13 +301,13 @@ function buildDots() {
   for (let k = 0; k < N; k++) {
     const b = document.createElement('button');
     b.className = 'dot-btn' + (k === i ? ' on' : '');
+    b.setAttribute('aria-label', `Vai alla slide ${k+1}`);
     b.onclick = () => { i = k; upd(); };
     dotsEl.appendChild(b);
   }
 }
 
 function upd() {
-  const w = track.offsetWidth / N;
   track.style.transform = `translateX(-${i * 100}%)`;
   ctr.textContent = `${i + 1} / ${N}`;
   prev.disabled = i === 0;
@@ -415,7 +319,16 @@ function go(d) { i = Math.max(0, Math.min(N - 1, i + d)); upd(); }
 
 buildDots();
 upd();
-window.addEventListener('resize', upd);
+
+// Swipe Support
+let sx = null;
+track.addEventListener('touchstart', e => sx = e.touches[0].clientX, {passive: true});
+track.addEventListener('touchend', e => {
+  if (sx === null) return;
+  let dx = e.changedTouches[0].clientX - sx;
+  if (Math.abs(dx) > 50) go(dx > 0 ? -1 : 1);
+  sx = null;
+});
 </script>
 </body>
 </html>
