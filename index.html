@@ -1,0 +1,304 @@
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+
+.deck-wrap { padding: 1.5rem 0; }
+
+.deck-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+.deck-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-tertiary); }
+.deck-counter { font-size: 13px; color: var(--color-text-secondary); }
+
+.deck-track-wrap { overflow: hidden; }
+.deck-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+.card {
+  flex: 0 0 100%;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top {
+  padding: 22px 24px 18px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  flex-shrink: 0;
+}
+
+.card-num {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 18px 24px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.card-body .point {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.card-body .point:last-child { margin-bottom: 0; }
+
+.dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.kpi {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.kpi-val { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+.kpi-lbl { font-size: 11px; color: var(--color-text-secondary); line-height: 1.35; }
+
+.quote-block {
+  border-left: 3px solid;
+  padding: 12px 14px;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  margin-top: 4px;
+}
+.quote-text { font-size: 13px; line-height: 1.6; font-style: italic; }
+.quote-author { font-size: 11px; font-weight: 500; margin-top: 6px; }
+
+.warn-box {
+  border: 0.5px solid;
+  border-radius: var(--border-radius-md);
+  padding: 12px 14px;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.warn-title { font-weight: 500; margin-bottom: 4px; font-size: 13px; }
+
+.nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
+.nav-btn {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 99px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.nav-btn:hover:not(:disabled) { background: var(--color-background-secondary); color: var(--color-text-primary); }
+.nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+.dots { display: flex; gap: 6px; align-items: center; }
+.pip {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-border-secondary);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.pip.active { width: 20px; border-radius: 3px; background: #185FA5; }
+</style>
+
+<div class="deck-wrap">
+  <div class="deck-header">
+    <span class="deck-label">EU Inc. — Approfondimento</span>
+    <span class="deck-counter" id="ctr">1 / 6</span>
+  </div>
+
+  <div class="deck-track-wrap">
+    <div class="deck-track" id="track">
+
+      <!-- CARD 1: Cos'è -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-num" style="color:#185FA5">01 — Panoramica</div>
+          <div class="card-title">Cos'è EU Inc. e perché nasce</div>
+          <span class="card-tag" style="background:#E6F1FB;color:#0C447C">Contesto</span>
+        </div>
+        <div class="card-body">
+          <div class="point"><span class="dot" style="background:#185FA5"></span>EU Inc. è il nuovo regime giuridico societario armonizzato proposto dalla Commissione europea il 18 marzo 2026, cuore del cosiddetto "28° regime".</div>
+          <div class="point"><span class="dot" style="background:#185FA5"></span>Non sostituisce le forme societarie nazionali (SRL, SPA…), ma si affianca come alternativa opzionale valida in tutti i 27 Stati membri.</div>
+          <div class="point"><span class="dot" style="background:#185FA5"></span>Nasce dalla frammentazione normativa europea: oggi le imprese fronteggiano 27 ordinamenti e oltre 60 forme societarie nazionali diverse, con ritardi di settimane o mesi nella costituzione.</div>
+          <div class="point"><span class="dot" style="background:#185FA5"></span>Si inserisce nel solco del Rapporto Draghi sulla competitività e del Competitiveness Compass 2025.</div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Come funziona -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-num" style="color:#0F6E56">02 — Meccanismo</div>
+          <div class="card-title">Come funziona: registrazione e struttura</div>
+          <span class="card-tag" style="background:#E1F5EE;color:#085041">Operativo</span>
+        </div>
+        <div class="card-body">
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val" style="color:#185FA5">48h</div><div class="kpi-lbl">Tempo max di costituzione online</div></div>
+            <div class="kpi"><div class="kpi-val" style="color:#185FA5">&lt;€100</div><div class="kpi-lbl">Costo massimo di registrazione</div></div>
+            <div class="kpi"><div class="kpi-val" style="color:#185FA5">€0</div><div class="kpi-lbl">Capitale sociale minimo richiesto</div></div>
+          </div>
+          <div class="point" style="margin-top:14px"><span class="dot" style="background:#0F6E56"></span>Il Registro-UE digitale (API-first) centralizza la registrazione: basta compilare un modulo online con nome, indirizzo, fondatori, azionisti e CDA.</div>
+          <div class="point"><span class="dot" style="background:#0F6E56"></span>I dati vengono forniti una sola volta e distribuiti ai registri nazionali. Estratti aziendali in tempo reale, accessibili tramite codice univoco.</div>
+          <div class="point"><span class="dot" style="background:#0F6E56"></span>Libera scelta del paese UE in cui costituirsi e dove stabilire la sede legale.</div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Vantaggi PMI -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-num" style="color:#534AB7">03 — Impatto PMI</div>
+          <div class="card-title">Cosa cambia per le PMI italiane</div>
+          <span class="card-tag" style="background:#EEEDFE;color:#3C3489">PMI & Export</span>
+        </div>
+        <div class="card-body">
+          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Espansione transfrontaliera semplificata.</strong> Le PMI in fase di internazionalizzazione potranno operare in più paesi UE senza dover costituire filiali locali con regole diverse.</span></div>
+          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Riduzione dei costi di compliance.</strong> Un solo quadro normativo abbatte le spese legali e amministrative oggi necessarie per adeguarsi a ogni ordinamento nazionale.</span></div>
+          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Accesso facilitato ai capitali.</strong> Il 28° regime include misure per agevolare l'accesso ai finanziamenti e attrarre investitori europei e internazionali.</span></div>
+          <div class="point"><span class="dot" style="background:#534AB7"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Stock option europee.</strong> Piani di incentivazione per dipendenti su scala UE, tassati solo al momento della vendita delle quote.</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Startup & Scaleup -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-num" style="color:#BA7517">04 — Startup & Scaleup</div>
+          <div class="card-title">Definizioni armonizzate e vantaggi specifici</div>
+          <span class="card-tag" style="background:#FAEEDA;color:#854F0B">Innovazione</span>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--color-text-tertiary);margin-bottom:12px">La Commissione ha adottato una Raccomandazione con definizioni UE armonizzate:</p>
+          <div class="point"><span class="dot" style="background:#BA7517"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Impresa innovativa:</strong> investimenti R&S ≥ 10% dei costi operativi o ≥ 5% del fatturato.</span></div>
+          <div class="point"><span class="dot" style="background:#BA7517"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Startup innovativa:</strong> impresa innovativa con meno di 100 dipendenti, fatturato o bilancio entro 10M€, età massima 10 anni.</span></div>
+          <div class="point"><span class="dot" style="background:#BA7517"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Scaleup innovativa:</strong> in espansione, fatturato o bilancio oltre 10M€ e crescita media annua superiore al 20% negli ultimi due anni.</span></div>
+          <div class="point"><span class="dot" style="background:#BA7517"></span>Le startup EU Inc. accedono a procedure di insolvenza semplificate, rapide e digitali per agevolare anche la cessazione dell'attività senza barriere definitive.</div>
+        </div>
+      </div>
+
+      <!-- CARD 5: Cosa rimane invariato -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-num" style="color:#993C1D">05 — Limiti & Criticità</div>
+          <div class="card-title">Cosa non cambia e i nodi ancora aperti</div>
+          <span class="card-tag" style="background:#FAECE7;color:#712B13">Attenzione</span>
+        </div>
+        <div class="card-body">
+          <div class="warn-box" style="border-color:#F0997B;background:#FAECE7">
+            <div class="warn-title" style="color:#712B13">Rimane invariato</div>
+            <div style="color:#993C1D;font-size:13px;line-height:1.6">Diritto del lavoro, fiscalità e regimi previdenziali restano nazionali. EU Inc. non può essere usata per aggirare obblighi verso i lavoratori.</div>
+          </div>
+          <div class="point" style="margin-top:14px"><span class="dot" style="background:#993C1D"></span>La dipendenza dai registri nazionali potrebbe generare differenze applicative tra paesi, rallentando l'uniformità sperata.</div>
+          <div class="point"><span class="dot" style="background:#993C1D"></span>L'iter legislativo è ancora lungo: Parlamento e Consiglio UE devono trovare accordo entro fine 2026. L'applicazione piena è attesa al 2028.</div>
+          <div class="point"><span class="dot" style="background:#993C1D"></span>Italian Tech Alliance chiede un vero registro unico europeo e un tribunale centrale, non solo un ulteriore livello sopra quelli nazionali.</div>
+        </div>
+      </div>
+
+      <!-- CARD 6: Timeline & Prossimi passi -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-num" style="color:#3B6D11">06 — Roadmap</div>
+          <div class="card-title">Prossimi passi e timeline</div>
+          <span class="card-tag" style="background:#EAF3DE;color:#27500A">Calendario</span>
+        </div>
+        <div class="card-body">
+          <div class="point"><span class="dot" style="background:#3B6D11"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Gennaio 2025</strong> — Competitiveness Compass: la Commissione annuncia il 28° regime come priorità.</span></div>
+          <div class="point"><span class="dot" style="background:#3B6D11"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">18 marzo 2026</strong> — Presentazione ufficiale della proposta di Regolamento EU Inc.</span></div>
+          <div class="point"><span class="dot" style="background:#3B6D11"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">Fine 2026 (obiettivo)</strong> — Accordo tra Parlamento europeo e Consiglio UE.</span></div>
+          <div class="point"><span class="dot" style="background:#3B6D11"></span><span><strong style="font-weight:500;color:var(--color-text-primary)">2028 (obiettivo)</strong> — Piena entrata in vigore e applicazione: "un'Europa, un mercato unico".</span></div>
+          <div class="quote-block" style="border-color:#185FA5;background:#E6F1FB;margin-top:12px">
+            <div class="quote-text" style="color:#0C447C">Promos Italia segue l'evoluzione normativa europea per supportare le PMI italiane nel cogliere per prime le opportunità del mercato unico.</div>
+            <div class="quote-author" style="color:#185FA5">Promos Italia — Approfondimento normativo</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prev" onclick="go(-1)" disabled>← Indietro</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="next" onclick="go(1)">Avanti →</button>
+  </div>
+</div>
+
+<script>
+const total = 6;
+let cur = 0;
+
+const track = document.getElementById('track');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const ctr = document.getElementById('ctr');
+const dotsEl = document.getElementById('dots');
+
+function buildDots() {
+  dotsEl.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pip' + (i === cur ? ' active' : '');
+    d.onclick = () => { cur = i; update(); };
+    dotsEl.appendChild(d);
+  }
+}
+
+function update() {
+  const cardW = track.parentElement.offsetWidth;
+  track.style.transform = `translateX(-${cur * (cardW + 16)}px)`;
+  ctr.textContent = `${cur + 1} / ${total}`;
+  prevBtn.disabled = cur === 0;
+  nextBtn.disabled = cur === total - 1;
+  buildDots();
+}
+
+function go(dir) { cur = Math.max(0, Math.min(total - 1, cur + dir)); update(); }
+
+buildDots();
+update();
+
+window.addEventListener('resize', update);
+
+let startX = null;
+track.parentElement.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+track.parentElement.addEventListener('touchend', e => {
+  if (startX === null) return;
+  const dx = e.changedTouches[0].clientX - startX;
+  if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+  startX = null;
+});
+</script>
